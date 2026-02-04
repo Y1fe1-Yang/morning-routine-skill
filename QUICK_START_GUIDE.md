@@ -15,51 +15,76 @@ cd morning-routine-skill
 
 **⚠️ Note**: This method only works with Gmail accounts. For other email providers (Outlook, QQ Mail, 163 Mail, etc.), use Method 2.
 
-#### Step 1: Get Gmail API Credentials
+---
 
-1. **Go to Google Cloud Console**: https://console.cloud.google.com/
+## 📚 详细设置指南
 
-2. **Create a New Project**:
-   - Click "Select a project" → "New Project"
-   - Name: "Morning Routine Skill"
-   - Click "Create"
+**🔗 完整图文教程：** [GMAIL_API_SETUP_DETAILED.md](GMAIL_API_SETUP_DETAILED.md)
 
-3. **Enable Gmail API**:
-   - Search for "Gmail API" in the top search bar
-   - Click "Gmail API" → Click "Enable"
+详细指南包含：
+- ✅ 每一步的详细说明
+- ✅ 常见问题解答
+- ✅ 安全说明
+- ✅ 故障排除
 
-4. **Configure OAuth Consent Screen**:
-   - Left sidebar → "APIs & Services" → "OAuth consent screen"
-   - Select "External" → Click "Create"
-   - Fill in:
-     - App name: "Morning Routine Skill"
-     - User support email: Your email
-     - Developer contact: Your email
-   - Click "Save and Continue" 3 times
-   - Add yourself as a test user → Click "Save"
+---
 
-5. **Create OAuth Credentials**:
-   - Left sidebar → "Credentials"
-   - Click "Create Credentials" → "OAuth client ID"
-   - Application type: **"Desktop app"** (重要!)
-   - Name: "Morning Routine Desktop"
-   - Click "Create"
+## ⚡ 快速步骤（5分钟）
 
-6. **Download credentials.json**:
-   - Click the ⬇️ download icon next to your credential
-   - Save the file as `credentials.json`
+#### Step 1: Google Cloud Console 设置
 
-#### Step 2: Install credentials.json
+**1. Go here:** https://console.cloud.google.com/
 
-Move the downloaded file to your skill directory:
+**2. Create project:**
+- Click "Select a project" → "NEW PROJECT"
+- Name: `Morning Routine Skill`
+- Click CREATE
+
+**3. Enable Gmail API:**
+- Search for "Gmail API" at top
+- Click "Gmail API"
+- Click "ENABLE"
+
+**4. Setup OAuth:**
+- Left sidebar → "OAuth consent screen"
+- Choose "External" → CREATE
+- App name: `Morning Routine Skill`
+- User support email: your email
+- Developer contact: your email
+- Click "SAVE AND CONTINUE" (4 times)
+- ⚠️ **Important:** On "Test users" page, click "+ ADD USERS"
+- Add your Gmail email (e.g., `your_email@gmail.com`)
+- Click ADD → SAVE AND CONTINUE
+
+**5. Create credentials:**
+- Left sidebar → "Credentials"
+- "+ CREATE CREDENTIALS" → "OAuth client ID"
+- **Application type:** Desktop app ← IMPORTANT!
+- Name: `Morning Routine Desktop`
+- Click CREATE
+- ⚠️ **Don't miss:** Click "DOWNLOAD JSON" button
+- File downloads as `client_secret_XXXXX.json`
+
+#### Step 2: Install Downloaded JSON File
+
+⚠️ **Important:** The file you just downloaded needs to be placed in the skill directory!
+
+**Move and rename the file:**
 
 ```bash
-# Move credentials.json to skill directory
+# Move the downloaded file to skill directory and rename it
 mv ~/Downloads/client_secret_*.json ./credentials.json
 
-# Or if file is already named credentials.json:
-mv ~/Downloads/credentials.json ./credentials.json
+# Verify it's there
+ls -l credentials.json
 ```
+
+**Or manually:**
+1. Find `client_secret_XXXXX.json` in your Downloads folder
+2. Copy or move it to the `morning-routine-skill` directory
+3. Rename it to `credentials.json`
+
+✅ You should now have `credentials.json` in your skill folder
 
 #### Step 3: Install Python Dependencies
 

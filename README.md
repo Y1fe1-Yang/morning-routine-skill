@@ -20,20 +20,25 @@ Automate your morning workflow with AI-powered email analysis, task extraction, 
 
 ### Two Ways to Use This Skill
 
-#### 🔥 Method A: Gmail API (Automatic - Recommended)
+#### 🔥 Method A: Gmail API (Automatic - Recommended for Gmail)
 
 **One-time setup, then fully automatic email fetching!**
 
-See [QUICK_START_GUIDE.md](QUICK_START_GUIDE.md) for detailed instructions.
+📚 **Detailed Guide:** [GMAIL_API_SETUP_DETAILED.md](GMAIL_API_SETUP_DETAILED.md) - Complete step-by-step instructions with troubleshooting
+
+📖 **Quick Start:** [QUICK_START_GUIDE.md](QUICK_START_GUIDE.md) - Fast setup in 5 minutes
 
 **Quick steps:**
 1. Enable Gmail API in Google Cloud Console
 2. Download `credentials.json` (OAuth Desktop app)
-3. Install Python packages: `pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib`
-4. Run `python scripts/fetch_emails_gmail_api.py` (browser opens for first-time auth)
-5. Generate briefing: `python scripts/generate_morning_briefing_final.py`
+3. ⚠️ **Important:** Move downloaded `client_secret_XXX.json` to skill folder and rename to `credentials.json`
+4. Install Python packages: `pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib`
+5. Run `python scripts/fetch_emails_gmail_api.py` (browser opens for first-time auth)
+6. Generate briefing: `python scripts/generate_morning_briefing_final.py`
 
 **Benefits:** Fully automatic, fast (2-3s), always up-to-date
+
+**⚠️ Gmail only** - For other email providers, use Method B below
 
 ---
 
