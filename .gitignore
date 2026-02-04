@@ -1,0 +1,33 @@
+# Sensitive files
+credentials.json
+token.json
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Output files
+outputs/*.png
+outputs/*.html
+outputs/*.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

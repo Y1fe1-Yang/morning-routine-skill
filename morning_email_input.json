@@ -1,0 +1,25 @@
+{
+  "email_summary": "15 unread emails: Team updates, Client feedback, Project deadlines",
+  "key_emails": [
+    {
+      "from": "Boss <boss@company.com>",
+      "subject": "Q1 Review Meeting - Tomorrow 2PM",
+      "snippet": "Please prepare slides for quarterly review"
+    },
+    {
+      "from": "Client <client@example.com>",
+      "subject": "Feature Request Feedback",
+      "snippet": "We love the new dashboard, but have some suggestions"
+    },
+    {
+      "from": "GitHub <notifications@github.com>",
+      "subject": "3 Pull Requests Awaiting Review",
+      "snippet": "Your team has submitted PRs that need your review"
+    }
+  ],
+  "custom_tasks": [
+    "Prepare Q1 review slides",
+    "Review client feedback and respond",
+    "Review pending pull requests"
+  ]
+}
