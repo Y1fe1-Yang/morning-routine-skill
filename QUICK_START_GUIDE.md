@@ -9,9 +9,11 @@ cd morning-routine-skill
 
 ## ⚡ Two Ways to Use This Skill
 
-### 🔥 Method 1: Gmail API (Best - Auto Fetch Emails)
+### 🔥 Method 1: Gmail API (Auto Fetch - Gmail Only)
 
 **One-time setup (5 minutes), then fully automatic!**
+
+**⚠️ Note**: This method only works with Gmail accounts. For other email providers (Outlook, QQ Mail, 163 Mail, etc.), use Method 2.
 
 #### Step 1: Get Gmail API Credentials
 
@@ -100,9 +102,11 @@ python scripts/generate_morning_briefing_final.py
 
 ---
 
-### 📝 Method 2: Manual JSON Entry (No Setup)
+### 📝 Method 2: Manual JSON Entry (No Setup - All Email Providers)
 
 **Quick and simple, works with ANY email provider**
+
+**✅ Works with**: Gmail, Outlook, QQ Mail, 163 Mail, Foxmail, Yahoo, ProtonMail, iCloud Mail, and any other email service
 
 #### Option A: Browser Console Script (Fastest)
 

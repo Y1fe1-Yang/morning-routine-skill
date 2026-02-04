@@ -8,13 +8,13 @@ Automate your morning workflow with AI-powered email analysis, task extraction, 
 
 ## ✨ Features
 
-- 📧 **Universal Email Support** - Works with Gmail, Outlook, QQ Mail, 163 Mail, Foxmail, and any email provider
+- 📧 **Flexible Email Support** - Gmail API (auto-fetch) or manual JSON input (any email provider)
 - 🎯 **Smart Task Extraction** - AI analyzes emails and extracts actionable tasks
 - 🤖 **AI Task Suggestions** - Generates intelligent task recommendations
 - 🖼️ **Static Image Dashboard** - Beautiful visual dashboard with English-only text
 - 🌐 **Interactive Webpage** - Dynamic HTML with task tracking and progress bar
 - 💾 **Persistent State** - Webpage remembers completed tasks using localStorage
-- 🚀 **Zero Setup** - No OAuth, no API keys, no complex configuration
+- 🚀 **Two Methods** - Automatic (Gmail API) or Manual (works with any email provider)
 
 ## 🎬 Quick Start
 
@@ -162,17 +162,19 @@ The skill automatically uses `AI_GATEWAY_API_KEY` from your environment for imag
 
 ## 📚 Email Provider Compatibility
 
-| Provider | Support | Method |
-|----------|---------|--------|
-| Gmail | ✅ | Console script or manual |
-| Outlook / Hotmail | ✅ | Manual entry |
-| QQ Mail (QQ邮箱) | ✅ | Manual entry |
-| 163 Mail (网易邮箱) | ✅ | Manual entry |
-| Foxmail | ✅ | Manual entry |
-| Yahoo Mail | ✅ | Manual entry |
-| ProtonMail | ✅ | Manual entry |
-| iCloud Mail | ✅ | Manual entry |
-| Any other | ✅ | Manual entry |
+| Provider | Gmail API (Auto) | Manual JSON |
+|----------|------------------|-------------|
+| Gmail | ✅ Automatic | ✅ Console script or manual |
+| Outlook / Hotmail | ❌ | ✅ Manual entry |
+| QQ Mail (QQ邮箱) | ❌ | ✅ Manual entry |
+| 163 Mail (网易邮箱) | ❌ | ✅ Manual entry |
+| Foxmail | ❌ | ✅ Manual entry |
+| Yahoo Mail | ❌ | ✅ Manual entry |
+| ProtonMail | ❌ | ✅ Manual entry |
+| iCloud Mail | ❌ | ✅ Manual entry |
+| Any other | ❌ | ✅ Manual entry |
+
+**Note**: Gmail API auto-fetch only works with Gmail. For all other email providers, use the manual JSON input method (Method B).
 
 ## 🎯 Use Cases
 
