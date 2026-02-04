@@ -7,9 +7,104 @@ git clone https://github.com/Y1fe1-Yang/morning-routine-skill.git
 cd morning-routine-skill
 ```
 
-## ⚡ Quick Gmail JSON Export (3 Minutes)
+## ⚡ Two Ways to Use This Skill
 
-### Method 1: Browser Console Script (Fastest)
+### 🔥 Method 1: Gmail API (Best - Auto Fetch Emails)
+
+**One-time setup (5 minutes), then fully automatic!**
+
+#### Step 1: Get Gmail API Credentials
+
+1. **Go to Google Cloud Console**: https://console.cloud.google.com/
+
+2. **Create a New Project**:
+   - Click "Select a project" → "New Project"
+   - Name: "Morning Routine Skill"
+   - Click "Create"
+
+3. **Enable Gmail API**:
+   - Search for "Gmail API" in the top search bar
+   - Click "Gmail API" → Click "Enable"
+
+4. **Configure OAuth Consent Screen**:
+   - Left sidebar → "APIs & Services" → "OAuth consent screen"
+   - Select "External" → Click "Create"
+   - Fill in:
+     - App name: "Morning Routine Skill"
+     - User support email: Your email
+     - Developer contact: Your email
+   - Click "Save and Continue" 3 times
+   - Add yourself as a test user → Click "Save"
+
+5. **Create OAuth Credentials**:
+   - Left sidebar → "Credentials"
+   - Click "Create Credentials" → "OAuth client ID"
+   - Application type: **"Desktop app"** (重要!)
+   - Name: "Morning Routine Desktop"
+   - Click "Create"
+
+6. **Download credentials.json**:
+   - Click the ⬇️ download icon next to your credential
+   - Save the file as `credentials.json`
+
+#### Step 2: Install credentials.json
+
+Move the downloaded file to your skill directory:
+
+```bash
+# Move credentials.json to skill directory
+mv ~/Downloads/client_secret_*.json ./credentials.json
+
+# Or if file is already named credentials.json:
+mv ~/Downloads/credentials.json ./credentials.json
+```
+
+#### Step 3: Install Python Dependencies
+
+```bash
+pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
+
+#### Step 4: First-Time Authorization
+
+```bash
+python scripts/fetch_emails_gmail_api.py
+```
+
+**What happens:**
+1. Browser opens automatically
+2. Google asks you to sign in
+3. Click "Allow" to give read-only Gmail access
+4. Browser shows "Authentication complete"
+5. Script fetches your emails automatically!
+
+**Token saved**: A `token.json` file is created. Future runs won't need browser authorization.
+
+#### Step 5: Use with Morning Briefing
+
+Now you can fetch emails automatically:
+
+```bash
+# Fetch latest emails from Gmail
+python scripts/fetch_emails_gmail_api.py > morning_email_input.json
+
+# Generate morning briefing
+python scripts/generate_morning_briefing_final.py
+```
+
+**Benefits:**
+- ✅ Fully automatic email fetching
+- ✅ Fast (2-3 seconds even with 1000+ emails)
+- ✅ No manual copying
+- ✅ Always up-to-date
+
+---
+
+### 📝 Method 2: Manual JSON Entry (No Setup)
+
+**Quick and simple, works with ANY email provider**
+
+#### Option A: Browser Console Script (Fastest)
 
 1. **Open Gmail** in your browser and go to your inbox
 2. **Open Developer Console**:
@@ -60,7 +155,7 @@ cd morning-routine-skill
 7. **Paste** (Ctrl+V / Cmd+V) to replace the entire content
 8. **Save** the file
 
-### Method 2: Manual Entry (5 Minutes)
+#### Option B: Manual Entry (5 Minutes)
 
 If the script doesn't work, manually edit `morning_email_input.json`:
 
@@ -163,10 +258,30 @@ Just copy the sender, subject, and a brief snippet from your emails into the JSO
 
 ## 🆘 Troubleshooting
 
+### Gmail API Issues
+
+**"credentials.json not found"**
+- Download from Google Cloud Console (see Method 1, Step 1)
+- Move to skill directory: `mv ~/Downloads/client_secret_*.json ./credentials.json`
+
+**"Access blocked: This app's request is invalid"**
+- Make sure OAuth Consent Screen is configured
+- Add your email as a test user
+- Use "Desktop app" not "Web application"
+
+**"Browser doesn't open for authorization"**
+- Manually visit the URL shown in terminal
+- Copy the authorization code
+- Paste it back in terminal
+
+### Manual Entry Issues
+
 **Gmail console script doesn't work?**
 - Make sure you're in the inbox view (not a specific email)
 - Try refreshing Gmail and running the script again
-- If still not working, use Method 2 (manual entry)
+- If still not working, use Option B (manual entry)
+
+### General Issues
 
 **Image generation fails?**
 - Check that `AI_GATEWAY_API_KEY` environment variable is set
@@ -176,6 +291,11 @@ Just copy the sender, subject, and a brief snippet from your emails into the JSO
 - Check the `./outputs/` folder exists
 - Verify the HTML file was created
 - Try opening manually from file explorer
+
+**ModuleNotFoundError: No module named 'google'**
+```bash
+pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
 
 ## 📚 Next Steps
 

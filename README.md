@@ -16,19 +16,41 @@ Automate your morning workflow with AI-powered email analysis, task extraction, 
 - 💾 **Persistent State** - Webpage remembers completed tasks using localStorage
 - 🚀 **Zero Setup** - No OAuth, no API keys, no complex configuration
 
-## 🎬 Quick Start (3 Steps)
+## 🎬 Quick Start
+
+### Two Ways to Use This Skill
+
+#### 🔥 Method A: Gmail API (Automatic - Recommended)
+
+**One-time setup, then fully automatic email fetching!**
+
+See [QUICK_START_GUIDE.md](QUICK_START_GUIDE.md) for detailed instructions.
+
+**Quick steps:**
+1. Enable Gmail API in Google Cloud Console
+2. Download `credentials.json` (OAuth Desktop app)
+3. Install Python packages: `pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib`
+4. Run `python scripts/fetch_emails_gmail_api.py` (browser opens for first-time auth)
+5. Generate briefing: `python scripts/generate_morning_briefing_final.py`
+
+**Benefits:** Fully automatic, fast (2-3s), always up-to-date
+
+---
+
+#### 📝 Method B: Manual JSON Entry (Simple)
+
+**No setup required, works with ANY email provider**
 
 ### Step 1: Install the Skill
 
 ```bash
-# Download and install
 git clone https://github.com/Y1fe1-Yang/morning-routine-skill.git
 cd morning-routine-skill
 ```
 
 ### Step 2: Create Your Email Input JSON
 
-**Method 1: Quick Gmail Export (Recommended)**
+**Option 1: Quick Gmail Console Script**
 
 1. Open Gmail in your browser
 2. Open browser console (F12 → Console tab)
@@ -73,7 +95,7 @@ cd morning-routine-skill
 4. The JSON will be automatically copied to your clipboard
 5. Paste it into `morning_email_input.json`
 
-**Method 2: Manual Entry**
+**Option 2: Manual Entry**
 
 Edit `morning_email_input.json`:
 
@@ -93,7 +115,7 @@ Edit `morning_email_input.json`:
 }
 ```
 
-**Method 3: For Other Email Providers**
+**Option 3: For Other Email Providers**
 
 - **Outlook**: View inbox → Copy email details manually
 - **QQ Mail/163 Mail**: Check inbox → Fill in the JSON template
